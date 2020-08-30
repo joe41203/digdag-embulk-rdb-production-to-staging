@@ -10,6 +10,9 @@ services:
       - "4306:3306"
     volumes:
       - ./initdb.d/production:/docker-entrypoint-initdb.d
+      - ./mysql-conf.d:/etc/mysql/conf.d
+    security_opt:
+      - seccomp:unconfined
   staging_db:
     image: mysql:8.0.18
     environment:
@@ -19,3 +22,20 @@ services:
       - "5306:3306"
     volumes:
       - ./initdb.d/staging:/docker-entrypoint-initdb.d
+      - ./mysql-conf.d:/etc/mysql/conf.d
+    security_opt:
+      - seccomp:unconfined
+  embulk:
+    image: embulk:latest
+    environment:
+      IN_DB_HOST: production_db
+      IN_DB_USER: root
+      IN_DB_PASSWORD: password
+      IN_DB_NAME: production_db
+      OUT_DB_HOST: staging_db
+      OUT_DB_USER: root
+      OUT_DB_PASSWORD: password
+      OUT_DB_NAME: staging_db
+    depends_on:
+      - production_db
+      - staging_db

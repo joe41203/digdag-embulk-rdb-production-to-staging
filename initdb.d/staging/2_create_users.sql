@@ -1,4 +1,4 @@
-USE database_staging;
+USE staging_db;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users

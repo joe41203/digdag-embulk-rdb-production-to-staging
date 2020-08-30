@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS database_staging;
-USE database_staging;
+CREATE DATABASE IF NOT EXISTS staging_db;
+USE staging_db;

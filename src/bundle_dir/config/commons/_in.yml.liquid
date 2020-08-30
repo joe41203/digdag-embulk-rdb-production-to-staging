@@ -1,0 +1,10 @@
+in:
+  type: mysql
+  host: {{ env.IN_DB_HOST }}
+  user: {{ env.IN_DB_USER }}
+  password: {{ env.IN_DB_PASSWORD }}
+  database: {{ env.IN_DB_NAME }}
+  table: {{ table }}
+  options: {useLegacyDatetimeCode: false, serverTimezone: UTC}
+  select: {{ select }} 
+  where: {{ where }}

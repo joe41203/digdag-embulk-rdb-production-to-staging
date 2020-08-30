@@ -1,4 +1,4 @@
-USE database_production;
+USE production_db;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users

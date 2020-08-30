@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS database_production;
-USE database_production;
+CREATE DATABASE IF NOT EXISTS production_db;
+USE production_db;

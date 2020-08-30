@@ -1,0 +1,11 @@
+out:
+  type: mysql
+  host: {{ env.OUT_DB_HOST }}
+  user: {{ env.OUT_DB_USER }}
+  password: {{ env.OUT_DB_PASSWORD }}
+  database: {{ env.OUT_DB_NAME }}
+  table: {{ table }}
+  options: {useLegacyDatetimeCode: false, serverTimezone: UTC, characterEncoding: UTF-8}
+  mode: truncate_insert
+  before_load: {{ before_load }}
+  after_load: {{ after_load }}
