@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  production_db:
+    image: mysql:8.0.18
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "4306:3306"
+    volumes:
+      - ./initdb.d/production:/docker-entrypoint-initdb.d
+  staging_db:
+    image: mysql:8.0.18
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "5306:3306"
+    volumes:
+      - ./initdb.d/staging:/docker-entrypoint-initdb.d
