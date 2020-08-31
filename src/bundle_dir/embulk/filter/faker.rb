@@ -45,6 +45,7 @@ module Embulk
       def fakered_record(page, record)
         @columns_params.each do |params|
           select_column = page.schema.select{ |c| c.name == params['name'] }
+          next if select_column.empty?
           embulk_col = select_column.first
           
           puts "page #{page}"

@@ -1,0 +1,12 @@
+timezone: UTC
+
++jobs:
+  +job1:
+    _parallel: true
+    _retry: 3
+    sh>: docker-compose run embulk java -jar /usr/local/bin/embulk run -I /workspace/bundle_dir -b /workspace/bundle_dir /workspace/bundle_dir/config/user.yml.liquid
+  +job2:
+    _parallel: false
+    +child_job1:
+      _retry: 3
+      sh>: docker-compose run embulk java -jar /usr/local/bin/embulk run -I /workspace/bundle_dir -b /workspace/bundle_dir /workspace/bundle_dir/config/article.yml.liquid
