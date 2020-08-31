@@ -6,6 +6,8 @@ source 'https://rubygems.org/'
 gem 'embulk'
 gem 'embulk-input-mysql'
 gem 'embulk-output-mysql'
+gem 'gimei'
+gem 'faker'
 #
 # 1. Use following syntax to specify versions of plugins
 #    to install this bundle directory:
