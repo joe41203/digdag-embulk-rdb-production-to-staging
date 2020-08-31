@@ -18,7 +18,7 @@ $ docker-compose exec staging_db bash
 ```
 
 ```
-$ ./jobdag/
+$ cd ./jobdag/
 $ digdag run jobdag.dig
 ```
 
