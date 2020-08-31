@@ -1,5 +1,8 @@
 timezone: UTC
 
+schedule:
+  daily>: 01:10:00
+
 +jobs:
   +job1:
     _parallel: true
