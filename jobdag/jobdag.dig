@@ -3,7 +3,21 @@ timezone: UTC
 schedule:
   daily>: 01:10:00
 
+_export:
+  plugin:
+    repositories:
+      - https://jitpack.io
+    dependencies:
+      - com.github.szyn:digdag-slack:0.1.4
+  # Set Reqired params
+  webhook_url: https://hooks.slack.com/services/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  # Set Option params
+  workflow_name: slack
+  ENV: develop
+
 +jobs:
+  +job0:
+    slack>: good-template.yml
   +job1:
     _parallel: true
     _retry: 3
