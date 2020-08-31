@@ -18,7 +18,8 @@ $ docker-compose exec staging_db bash
 ```
 
 ```
-$ docker-compose up --force-recreate --build embulk
+$ ./jobdag/
+$ digdag run jobdag.dig
 ```
 
 produciton のデータが移行されているか確認
