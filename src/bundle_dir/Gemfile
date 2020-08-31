@@ -8,6 +8,7 @@ gem 'embulk-input-mysql'
 gem 'embulk-output-mysql'
 gem 'gimei'
 gem 'faker'
+gem 'pry-rails'
 #
 # 1. Use following syntax to specify versions of plugins
 #    to install this bundle directory:

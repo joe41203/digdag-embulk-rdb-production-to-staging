@@ -8,3 +8,8 @@ in:
   options: {useLegacyDatetimeCode: false, serverTimezone: UTC}
   select: {{ select }} 
   where: {{ where }}
+filters:
+  - type: faker
+    mask:
+    - { name: email, type: email }
+    - { name: name, type: name_kanji }
