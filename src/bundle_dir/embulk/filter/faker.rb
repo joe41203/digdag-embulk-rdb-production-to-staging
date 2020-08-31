@@ -1,7 +1,6 @@
 require 'gimei'
 require 'romaji'
 require 'faker'
-require 'pry'
 
 module Embulk
   module Filter
@@ -17,10 +16,6 @@ module Embulk
         }
 
         out_columns = in_schema
-        
-        puts "task #{task}"
-        puts "in_schema #{in_schema}"
-        puts "out_columns #{out_columns}"
 
         puts "Faker filter started."
         yield(task, out_columns)
@@ -68,15 +63,15 @@ module Embulk
         gimei = Gimei.name
         
         return {
-          name_kanji: gimei.kanji,
-          name_romaji: (Romaji.kana2romaji gimei.katakana).split.map(&:capitalize).join(' '),
-          email: Faker::Internet.email,
-          address: Faker::Address.full_address
+          name_kanji: proc { gimei.kanji },
+          name_romaji: proc { (Romaji.kana2romaji gimei.katakana).split.map(&:capitalize).join(' ') },
+          email: proc { Faker::Internet.email },
+          address: proc { Faker::Address.full_address }
         }
       end
 
       def make_val(params)
-        fakes[params["type"].to_sym]
+        fakes[params["type"].to_sym].call
       end
     end
   end

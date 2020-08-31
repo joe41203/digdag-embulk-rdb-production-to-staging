@@ -38,6 +38,11 @@ services:
       OUT_DB_NAME: staging_db
     stdin_open: true
     tty: true
+    volumes:
+      - workspace:/workspace
     depends_on:
       - production_db
       - staging_db
+
+volumes:
+  workspace:

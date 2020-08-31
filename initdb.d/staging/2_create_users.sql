@@ -5,5 +5,6 @@ CREATE TABLE users
 (
   id           INT(10),
   name     VARCHAR(40),
-  email     VARCHAR(120)
+  email     VARCHAR(120),
+  nickname     VARCHAR(40)
 );
